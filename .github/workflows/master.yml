@@ -45,4 +45,13 @@ jobs:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
-      
+      - name: Deploy application
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          script: |
+            docker stop dotnetwebapiplayground
+            docker run -it --rm --name dotnetwebapiplayground -d -p 8080:8080 ghcr.io/damianmichalik/dotnetwebapiplayground:master
