@@ -55,5 +55,5 @@ jobs:
           script: |
             docker stop dotnetwebapiplayground
             docker pull ghcr.io/damianmichalik/dotnetwebapiplayground:master
-            docker run -it --rm --name dotnetwebapiplayground -d -p 8080:8080 ghcr.io/damianmichalik/dotnetwebapiplayground:master
+            docker run -it --rm --name dotnetwebapiplayground -d -p 8080:8080 --env-file /var/www/dotnet_playground/.env ghcr.io/damianmichalik/dotnetwebapiplayground:master
             docker system prune -f
