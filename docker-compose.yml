@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:17
+    image: postgres:16.4
     shm_size: '4gb'
     container_name: postgres
     restart: unless-stopped

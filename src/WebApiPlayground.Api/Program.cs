@@ -10,8 +10,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-Console.WriteLine($"Connection String {builder.Configuration.GetConnectionString("DefaultConnection")}");
-
 builder.Services.AddDbContext<AppDbContext>(
     options => options
         .UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"), o => o.SetPostgresVersion(17, 0))
