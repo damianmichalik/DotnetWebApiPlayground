@@ -11,7 +11,7 @@ namespace WebApiPlayground.Api.Tests.Integration;
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>, IAsyncLifetime
 {
     private readonly PostgreSqlContainer _dbContainer = new PostgreSqlBuilder()
-        .WithImage("postgres:17")
+        .WithImage("postgres:16.4")
         .WithUsername("postgres")
         .WithPassword("postgres")
         .WithDatabase("webapi-test")
