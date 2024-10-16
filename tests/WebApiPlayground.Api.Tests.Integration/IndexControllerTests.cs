@@ -1,12 +1,10 @@
-using Microsoft.AspNetCore.Mvc.Testing;
-
 namespace WebApiPlayground.Api.Tests.Integration;
 
-public class IndexControllerTests : IClassFixture<WebApplicationFactory<Program>>
+public class IndexControllerTests : IClassFixture<CustomWebApplicationFactory>
 {
-    private readonly WebApplicationFactory<Program> _factory;
+    private readonly CustomWebApplicationFactory _factory;
 
-    public IndexControllerTests(WebApplicationFactory<Program> factory)
+    public IndexControllerTests(CustomWebApplicationFactory factory)
     {
         _factory = factory;
     }
